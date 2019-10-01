@@ -40,14 +40,18 @@ public class Ordenes{
 	public Ordenes() {
 		super();
 	}
+	
+	
 
-	public Ordenes(int idOrden, Mesas mesa, Date fechaEmisionOrden, Estados estado) {
+	public Ordenes(int idOrden, Mesas mesas, Date fechaEmisionOrden, Estados estados) {
 		super();
 		this.idOrden = idOrden;
-		this.mesas = mesa;
+		this.mesas = mesas;
 		this.fechaEmisionOrden = fechaEmisionOrden;
-		this.estados = estado;
+		this.estados = estados;
 	}
+
+
 
 	public int getIdOrden() {
 		return idOrden;
@@ -57,12 +61,12 @@ public class Ordenes{
 		this.idOrden = idOrden;
 	}
 
-	public Mesas getMesa() {
+	public Mesas getMesas() {
 		return mesas;
 	}
 
-	public void setMesa(Mesas mesa) {
-		this.mesas = mesa;
+	public void setMesas(Mesas mesas) {
+		this.mesas = mesas;
 	}
 
 	public Date getFechaEmisionOrden() {
@@ -73,11 +77,12 @@ public class Ordenes{
 		this.fechaEmisionOrden = fechaEmisionOrden;
 	}
 
-	public Estados getEstado() {
+	public Estados getEstados() {
 		return estados;
 	}
 
-	public void setEstado(Estados estado) {
+	public void setEstados(Estados estados) {
+		this.estados = estados;
 	}
 
 	

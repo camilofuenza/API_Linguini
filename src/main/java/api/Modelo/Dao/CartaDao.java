@@ -11,12 +11,16 @@ import api.Modelo.Entities.Carta;
 @Repository
 public interface CartaDao extends JpaRepository<Carta,Integer> {
 
-@Query("select c from Carta c where c.categoria.nombreCategoria= 'Postres'") 
-public List<Carta> listarPostres();
+@Query("select c from Carta c where c.categoria.nombreCategoria= 'Pastas'") 
+public List<Carta> listarPastas();
 
-@Query("select c from Carta c where c.categoria.nombreCategoria= 'Fondos'") 
-public List<Carta> listarFondos();
+@Query("select c from Carta c where c.categoria.nombreCategoria= 'Pizzas'") 
+public List<Carta> listarPizzas();
 
-@Query("select c from Carta c where c.categoria.nombreCategoria= 'Bebestibles'") 
-public List<Carta> listarBebestibles();
+@Query("select c from Carta c where c.categoria.nombreCategoria= 'Bebidas'") 
+public List<Carta> listarBebidas();
+@Query("select c from Carta c where c.categoria.nombreCategoria= 'Cervezas'") 
+public List<Carta> listarCervezas();
+@Query("select c from Carta c where c.categoria.nombreCategoria= 'Vinos'") 
+public List<Carta> listarVinos();
 }

@@ -32,19 +32,30 @@ public class CartaService {
     }
 	
 	@Transactional
-	public List<Carta> getPostres(){
+	public List<Carta> getPastas(){
 		
-		return this.cartadao.listarPostres();
+		return this.cartadao.listarPastas();
 	}
 	@Transactional
-	public List<Carta> getFondos(){
+	public List<Carta> getPizzas(){
 		
-		return this.cartadao.listarFondos();
+		return this.cartadao.listarPizzas();
 	}
 	@Transactional
-	public List<Carta> getBebestibles(){
+	public List<Carta> getBebidas(){
 		
-		return this.cartadao.listarBebestibles();
+		return this.cartadao.listarBebidas();
 	}
+	@Transactional
+	public List<Carta> getCervezas(){
+		
+		return this.cartadao.listarCervezas();
+	}
+	@Transactional
+	public List<Carta> getVinos(){
+		
+		return this.cartadao.listarVinos();
+	}
+	
 
 }

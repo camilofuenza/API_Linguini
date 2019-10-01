@@ -3,8 +3,6 @@ package api.Modelo.Services;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,12 +15,11 @@ import api.Modelo.Entities.Categorias;
 public class CategoriaService implements ICategoriaService {
 	@Autowired
 	CategoriaDao categoriaDao;
-	
-	private EntityManager em;
+
 	
 	@Transactional
 	public List<Categorias> getAllCategorias() {
-		
+
 		List<Categorias> categorias= new ArrayList<Categorias>();
 		
 		for(Categorias a : (List<Categorias>)categoriaDao.findAll()) {

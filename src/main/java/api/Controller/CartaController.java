@@ -36,17 +36,25 @@ public class CartaController {
 		return cartaService.getAllCarta();
 	}
 	
-	@RequestMapping(value = "/postres", method = RequestMethod.GET)
-	public List<Carta> getAllPostres() {
-		return cartaService.getPostres();
+	@RequestMapping(value = "/pastas", method = RequestMethod.GET)
+	public List<Carta> getAllPastas() {
+		return cartaService.getPastas();
 	}
-	@RequestMapping(value = "/fondos", method = RequestMethod.GET)
-	public List<Carta> getAllFondos() {
-		return cartaService.getFondos();
+	@RequestMapping(value = "/pizzas", method = RequestMethod.GET)
+	public List<Carta> getAllPizzas() {
+		return cartaService.getPizzas();
 	}
-	@RequestMapping(value = "/bebestibles", method = RequestMethod.GET)
-	public List<Carta> getAllBebestibles() {
-		return cartaService.getBebestibles();
+	@RequestMapping(value = "/bebidas", method = RequestMethod.GET)
+	public List<Carta> getAllBebidas() {
+		return cartaService.getBebidas();
+	}
+	@RequestMapping(value = "/cervezas", method = RequestMethod.GET)
+	public List<Carta> getAllCervezas() {
+		return cartaService.getCervezas();
+	}
+	@RequestMapping(value = "/vinos", method = RequestMethod.GET)
+	public List<Carta> getAllVinos() {
+		return cartaService.getVinos();
 	}
 	 
 	
