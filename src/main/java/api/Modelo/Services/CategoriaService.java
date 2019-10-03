@@ -12,7 +12,7 @@ import api.Modelo.Dao.CategoriaDao;
 import api.Modelo.Entities.Categorias;
 
 @Service
-public class CategoriaService implements ICategoriaService {
+public class CategoriaService {
 	@Autowired
 	CategoriaDao categoriaDao;
 
