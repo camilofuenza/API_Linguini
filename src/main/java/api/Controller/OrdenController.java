@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import api.Modelo.Entities.Carta;
+import api.Modelo.Entities.Cartas;
 import api.Modelo.Entities.Estados;
 import api.Modelo.Entities.Mesas;
 import api.Modelo.Entities.Ordenes;
@@ -25,7 +25,7 @@ import api.Modelo.Services.OrdenService;
 
 @RestController
 @RequestMapping("/api/orden")
-@CrossOrigin(origins = { "http://localhost:4200" }, maxAge = 3600)
+@CrossOrigin(origins = { "http://localhost:4200","http://localhost:8100" }, maxAge = 3600)
 
 public class OrdenController {
 
@@ -67,7 +67,7 @@ public class OrdenController {
 		Estados e= estadoService.listEstado(idEstado);
 		o.setEstados(e);
 		Mesas m= mesaService.listMesa(idMesa);
-		Carta c =cartaService.listCarta(idCarta);
+		Cartas c =cartaService.listCarta(idCarta);
 		o.setCarta(c);
 		
 		System.out.println(e.getNombreEstado());

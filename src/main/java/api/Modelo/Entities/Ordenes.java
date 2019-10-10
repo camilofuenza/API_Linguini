@@ -16,13 +16,13 @@ public class Ordenes{
 
 	@Column(name = "idorden", nullable = false)
 	@Id
-	@SequenceGenerator(name = "Orden_SEQ", sequenceName = "Orden_SEQ", allocationSize = 1)
+	@SequenceGenerator(name = "Orden_SEQ", sequenceName = "Orden_SEQ", allocationSize = 1, initialValue=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="Orden_SEQ")
 	private int idOrden;
 	
 	
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idmesa")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Mesas mesas;
@@ -32,15 +32,15 @@ public class Ordenes{
 	@Temporal(TemporalType.DATE)
 	private Date fechaEmisionOrden;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idestado")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Estados estados;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idcarta")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	private Carta carta;
+	private Cartas carta;
 	
 	public Ordenes() {
 		super();
@@ -48,7 +48,7 @@ public class Ordenes{
 	
 	
 
-	public Ordenes(int idOrden, Mesas mesas, Date fechaEmisionOrden, Estados estados, Carta carta) {
+	public Ordenes(int idOrden, Mesas mesas, Date fechaEmisionOrden, Estados estados, Cartas carta) {
 		super();
 		this.idOrden = idOrden;
 		this.mesas = mesas;
@@ -91,11 +91,11 @@ public class Ordenes{
 		this.estados = estados;
 	}
 
-	public Carta getCarta() {
+	public Cartas getCarta() {
 		return carta;
 	}
 
-	public void setCarta(Carta carta) {
+	public void setCarta(Cartas carta) {
 		this.carta = carta;
 	}
 

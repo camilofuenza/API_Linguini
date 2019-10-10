@@ -11,7 +11,7 @@ public class Empleados {
 
 	@Column (name="idempleado")
 	@Id
-	@SequenceGenerator(name = "Empleado_SEQ", sequenceName = "Empleado_SEQ", allocationSize = 1)
+	@SequenceGenerator(name = "Empleado_SEQ", sequenceName = "Empleado_SEQ", allocationSize = 1, initialValue=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="Empleado_SEQ")
 	
 	private int idEmpleado;
@@ -41,7 +41,7 @@ public class Empleados {
 	@Size(max=14)
 	private String telefonoEmpleado;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "username")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Usuarios usuarios;

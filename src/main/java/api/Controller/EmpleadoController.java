@@ -14,7 +14,8 @@ import api.Modelo.Services.EmpleadoService;
 
 @RestController
 @RequestMapping("/api/empleado")
-@CrossOrigin(origins = { "http://localhost:4200" }, maxAge = 3600)
+@CrossOrigin(origins = { "http://localhost:4200","http://localhost:8100" }, maxAge = 3600)
+
 public class EmpleadoController {
 	
 

@@ -2,6 +2,7 @@ package api.Modelo.Entities;
 
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,16 +27,16 @@ public class Mesas{
 	
 	@Id
 	@Column (name="idmesa")
-	@SequenceGenerator(name = "Mesa_SEQ", sequenceName = "Mesa_SEQ", allocationSize = 1)
+	@SequenceGenerator(name = "Mesa_SEQ", sequenceName = "Mesa_SEQ", allocationSize = 1,initialValue=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="Mesa_SEQ")
 	private int idMesa;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idestado")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Estados estados;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idempleado")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Empleados empleados;

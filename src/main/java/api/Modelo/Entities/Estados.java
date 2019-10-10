@@ -14,7 +14,7 @@ public class Estados{
 	
 	@Id
 	@Column(name="idestado")
-	@SequenceGenerator(name = "Estado_SEQ", sequenceName = "Estado_SEQ", allocationSize = 1)
+	@SequenceGenerator(name = "Estado_SEQ", sequenceName = "Estado_SEQ", allocationSize = 1, initialValue=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="Estado_SEQ")
 	private int idEstado;
 	

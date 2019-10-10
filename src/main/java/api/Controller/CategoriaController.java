@@ -20,7 +20,7 @@ import api.Modelo.Services.CategoriaService;
 
 @RestController
 @RequestMapping("/api/categoria")
-@CrossOrigin(origins = { "http://localhost:4200" }, maxAge = 3600)
+@CrossOrigin(origins = { "http://localhost:4200","http://localhost:8100" }, maxAge = 3600)
 
 public class CategoriaController {
 

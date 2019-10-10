@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import api.Modelo.Entities.Producto;
+import api.Modelo.Entities.Productos;
 import api.Modelo.Services.ProductoService;
 
 @RestController
 @RequestMapping("/api/producto")
-@CrossOrigin(origins = { "http://localhost:4200" }, maxAge = 3600)
+@CrossOrigin(origins = { "http://localhost:4200","http://localhost:8100" }, maxAge = 3600)
 
 public class ProductoController {
 
@@ -27,12 +27,12 @@ public class ProductoController {
 	ProductoService productoService;
 
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
-	public List<Producto> getAllProductos() {
+	public List<Productos> getAllProductos() {
 		return productoService.getAllProductos();
 	}
 
 	@PostMapping("/addproducto")
-	public Producto addProducto(@RequestBody Producto c) {
+	public Productos addProducto(@RequestBody Productos c) {
 	
 		
 		return productoService.addProducto(c);
@@ -46,12 +46,12 @@ public class ProductoController {
 	}
 	
 	@GetMapping(path= {"/{idProducto}"})
-	public Producto listarProducto(@PathVariable("idProducto") int idProducto){
+	public Productos listarProducto(@PathVariable("idProducto") int idProducto){
 		return productoService.listProducto(idProducto);
 	}
 	
 	@PutMapping(path= {"/{idProducto}"})
-		public Producto editarProducto(@RequestBody Producto c,@PathVariable("idProducto") int idProducto) {
+		public Productos editarProducto(@RequestBody Productos c,@PathVariable("idProducto") int idProducto) {
 		c.setIdProducto(idProducto);
 		return productoService.saveProducto(c);
 		}

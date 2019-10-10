@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import api.Modelo.Dao.CartaDao;
-import api.Modelo.Entities.Carta;
+import api.Modelo.Entities.Cartas;
 
 
 @Service
@@ -17,42 +17,42 @@ public class CartaService {
 	CartaDao cartadao;
 	
 	@Transactional
-	public List<Carta> getAllCarta() {
+	public List<Cartas> getAllCarta() {
         return this.cartadao.findAll();
     }
 	
 	@Transactional
-	public Carta listCarta(int idCarta) {
+	public Cartas listCarta(int idCarta) {
 		return cartadao.findById(idCarta).orElse(null);
 	}
 	
 	@Transactional
-    public Carta addCarta(Carta carta) {
+    public Cartas addCarta(Cartas carta) {
         return this.cartadao.save(carta);
     }
 	
 	@Transactional
-	public List<Carta> getPastas(){
+	public List<Cartas> getPastas(){
 		
 		return this.cartadao.listarPastas();
 	}
 	@Transactional
-	public List<Carta> getPizzas(){
+	public List<Cartas> getPizzas(){
 		
 		return this.cartadao.listarPizzas();
 	}
 	@Transactional
-	public List<Carta> getBebidas(){
+	public List<Cartas> getBebidas(){
 		
 		return this.cartadao.listarBebidas();
 	}
 	@Transactional
-	public List<Carta> getCervezas(){
+	public List<Cartas> getCervezas(){
 		
 		return this.cartadao.listarCervezas();
 	}
 	@Transactional
-	public List<Carta> getVinos(){
+	public List<Cartas> getVinos(){
 		
 		return this.cartadao.listarVinos();
 	}

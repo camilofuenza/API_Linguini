@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import api.Modelo.Dao.ProductoDao;
-import api.Modelo.Entities.Producto;
+import api.Modelo.Entities.Productos;
 
 
 @Service
@@ -18,12 +18,12 @@ public class ProductoService {
 	
 	
 	@Transactional
-	public List<Producto> getAllProductos() {
+	public List<Productos> getAllProductos() {
         return this.productoDao.findAll();
     }
 
 	@Transactional
-    public Producto addProducto(Producto producto) {
+    public Productos addProducto(Productos producto) {
         return this.productoDao.save(producto);
     }
 	
@@ -34,12 +34,12 @@ public class ProductoService {
 	}
 	
 	@Transactional
-	public Producto listProducto(int idProducto) {
+	public Productos listProducto(int idProducto) {
 		return productoDao.findById(idProducto).orElse(null);
 	}
 	
 	@Transactional
-	public Producto saveProducto(Producto categoria) {
+	public Productos saveProducto(Productos categoria) {
         return this.productoDao.save(categoria);
     }
 }

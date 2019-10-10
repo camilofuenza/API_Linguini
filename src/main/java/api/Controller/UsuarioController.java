@@ -1,6 +1,6 @@
 package api.Controller;
 
-import javax.validation.Valid;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,7 +16,7 @@ import api.Modelo.Services.UsuarioService;
 
 @RestController
 @RequestMapping("/api/usuario")
-@CrossOrigin(origins = { "http://localhost:4200" }, maxAge = 3600)
+@CrossOrigin(origins = { "http://localhost:4200","http://localhost:8100" }, maxAge = 3600)
 public class UsuarioController {
 	
 	@Autowired

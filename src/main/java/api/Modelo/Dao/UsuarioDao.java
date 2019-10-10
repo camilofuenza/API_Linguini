@@ -12,4 +12,6 @@ public interface UsuarioDao extends JpaRepository<Usuarios,String> {
 
 	@Query("select u from Usuarios u where u.username= ?1 and u.password= ?2") 
 	public Usuarios verifyUsuario(String username, String password);
+	
+	
 }

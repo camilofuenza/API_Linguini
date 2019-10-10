@@ -26,7 +26,7 @@ import api.Modelo.Services.MesaService;
 
 @RestController
 @RequestMapping("/api/mesa")
-@CrossOrigin(origins = { "http://localhost:4200" }, maxAge = 3600)
+@CrossOrigin(origins = { "http://localhost:4200","http://localhost:8100" }, maxAge = 3600)
 
 public class MesaController {
 	

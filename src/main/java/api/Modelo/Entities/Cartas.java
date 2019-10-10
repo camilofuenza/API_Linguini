@@ -8,13 +8,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="cartas")
-public class Carta {
+public class Cartas {
 
 
 	
 	@Column (name="idcarta", nullable=false)
 	@Id
-	@SequenceGenerator(name = "Carta_SEQ", sequenceName = "Carta_SEQ", allocationSize = 1)
+	@SequenceGenerator(name = "Carta_SEQ", sequenceName = "Carta_SEQ", allocationSize = 1, initialValue=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="Carta_SEQ")
 	private int idCarta;
 	
@@ -26,18 +26,18 @@ public class Carta {
 	@Column (name="valorcarta", nullable=false)
 	private int valorCarta;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idcategoria")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Categorias categoria;
 	 
-	public Carta() {
+	public Cartas() {
 		super();
 	}
 	
 	
 
-	public Carta(int idCarta, @Size(max = 100) String nombreCarta, int valorCarta, Categorias categoria) {
+	public Cartas(int idCarta, @Size(max = 100) String nombreCarta, int valorCarta, Categorias categoria) {
 		super();
 		this.idCarta = idCarta;
 		this.nombreCarta = nombreCarta;

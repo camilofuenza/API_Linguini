@@ -17,7 +17,7 @@ public class Roles{
 	
 	@Column(name="idrol")
 	@Id
-	@SequenceGenerator(name = "Rol_SEQ", sequenceName = "Rol_SEQ", allocationSize = 1)
+	@SequenceGenerator(name = "Rol_SEQ", sequenceName = "Rol_SEQ", allocationSize = 1, initialValue=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="Rol_SEQ")
    
 	private int idRol;
