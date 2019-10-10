@@ -34,6 +34,11 @@ public class Productos {
 	@JoinColumn(name = "idcategoria")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Categorias categoria;
+	
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
+	@JoinColumn(name = "idinventario")
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	private Inventarios inventarios;
 
 	public Productos() {
 		super();

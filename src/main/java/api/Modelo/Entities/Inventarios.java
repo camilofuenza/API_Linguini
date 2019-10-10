@@ -23,10 +23,7 @@ public class Inventarios {
 	private int stock;
 
 
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
-	@JoinColumn(name = "idproducto")
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	private Productos productos;
+	
 	
 	
 	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE, orphanRemoval = true)
@@ -43,11 +40,11 @@ public class Inventarios {
 	
 
 	public Inventarios(int idInventario, @NotEmpty(message = "El campo no puede estar vacío") int stock,
-			Productos productos, Bodegas bodegas) {
+			 Bodegas bodegas) {
 		super();
 		this.idInventario = idInventario;
 		this.stock = stock;
-		this.productos = productos;
+		
 		this.bodegas = bodegas;
 	}
 
@@ -73,14 +70,6 @@ public class Inventarios {
 	}
 
 
-	public Productos getProductos() {
-		return productos;
-	}
-
-
-	public void setProductos(Productos productos) {
-		this.productos = productos;
-	}
 
 
 	public Bodegas getBodegas() {
