@@ -22,7 +22,7 @@ public class EmpleadoService {
 	}
 	
 	@Transactional
-	public List<Empleados> getAllEmpleados(){
+	public List<Empleados> listarEmpleados(){
 		
 		
         return empleadoDao.findAll();

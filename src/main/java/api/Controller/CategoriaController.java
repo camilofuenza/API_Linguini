@@ -29,31 +29,31 @@ public class CategoriaController {
 
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public List<Categorias> getAllUsers() {
-		return categoriaService.getAllCategorias();
+		return categoriaService.listarCategorias();
 	}
 
 	@PostMapping("/addcategoria")
 	public Categorias addCategoria(@RequestBody Categorias c) {
 		
-		return categoriaService.addCategoria(c);
+		return categoriaService.agregarCategoria(c);
 	}
 	
 
 	@DeleteMapping("/{deletecategoria}")
 	public void deleteCategoria(@PathVariable("deletecategoria") int idCategoria) {
 		
-		categoriaService.deleteCategoria(idCategoria);
+		categoriaService.eliminarCategoria(idCategoria);
 	}
 	
 	@GetMapping(path= {"/{idCategoria}"})
 	public Categorias listarCategoria(@PathVariable("idCategoria") int idCategoria){
-		return categoriaService.listCategoria(idCategoria);
+		return categoriaService.buscarCategoria(idCategoria);
 	}
 	
 	@PutMapping(path= {"/{idCategoria}"})
 		public Categorias editarCategoria(@RequestBody Categorias c,@PathVariable("idCategoria") int idCategoria) {
 		c.setIdCategoria(idCategoria);
-		return categoriaService.saveCategoria(c);
+		return categoriaService.guardarCategoria(c);
 		}
 	
 

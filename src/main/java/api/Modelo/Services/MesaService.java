@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import api.Modelo.Dao.MesaDao;
-import api.Modelo.Entities.Categorias;
 import api.Modelo.Entities.Mesas;
 
 @Service
@@ -18,12 +17,16 @@ public class MesaService {
 	
 
 	@Transactional
-	public Mesas listMesa(int idMesa) {
+	public Mesas buscarMesa(int idMesa) {
 		return mesaDao.findById(idMesa).orElse(null);
+	}
+	@Transactional
+	public List<Mesas> listarMesa() {
+		return (List<Mesas>)mesaDao.findAll();
 	}
 	
 	@Transactional
-	public Mesas saveMesa(Mesas mesa) {
+	public Mesas agregarMesa(Mesas mesa) {
         return this.mesaDao.save(mesa);
     }
 	

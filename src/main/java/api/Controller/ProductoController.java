@@ -26,9 +26,9 @@ public class ProductoController {
 	@Autowired
 	ProductoService productoService;
 
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	@RequestMapping(value = "/listarProductos", method = RequestMethod.GET)
 	public List<Productos> getAllProductos() {
-		return productoService.getAllProductos();
+		return productoService.listarProductos();
 	}
 
 	@PostMapping("/addproducto")

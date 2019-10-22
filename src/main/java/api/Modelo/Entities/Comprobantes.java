@@ -3,7 +3,6 @@ package api.Modelo.Entities;
 import java.util.Date;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

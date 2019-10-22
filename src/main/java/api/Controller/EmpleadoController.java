@@ -22,9 +22,9 @@ public class EmpleadoController {
 	@Autowired
 	EmpleadoService empleadoService;
 	
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
-	public List<Empleados> getAllUsers() {
-		return empleadoService.getAllEmpleados();
+	@RequestMapping(value = "/listarEmpleados", method = RequestMethod.GET)
+	public List<Empleados> listarEmpleados() {
+		return empleadoService.listarEmpleados();
 	}
 	
 	@RequestMapping(value = "/meseros", method = RequestMethod.GET)

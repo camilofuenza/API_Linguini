@@ -7,8 +7,10 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +20,7 @@ import api.Modelo.Entities.Cartas;
 import api.Modelo.Entities.Estados;
 import api.Modelo.Entities.Mesas;
 import api.Modelo.Entities.Ordenes;
+import api.Modelo.Entities.Usuarios;
 import api.Modelo.Services.CartaService;
 import api.Modelo.Services.EstadoService;
 import api.Modelo.Services.MesaService;
@@ -57,6 +60,20 @@ public class OrdenController {
 		return ordenService.listOrdenesenTerminada();
 	}
 	
+	@GetMapping("/{idMesa}")
+    public List<Ordenes> listarPedidos(@PathVariable (value = "idMesa") int idMesa
+                                 ) {
+        
+        
+            return ordenService.listarPedidos(idMesa);
+       
+    }
+	@PutMapping(path= {"/{idOrden}"})
+	public Ordenes modificiarOrden(@RequestBody Ordenes o,@PathVariable("idOrden") int idOrden) {
+	o.setIdOrden(idOrden);
+	return ordenService.agregarOrden(o);
+	}
+	
 	
 	
 	@PostMapping("/{idEstado}/{idMesa}/{idCarta}/addorden")
@@ -66,15 +83,15 @@ public class OrdenController {
 			@Valid @RequestBody Ordenes o) {
 		Estados e= estadoService.listEstado(idEstado);
 		o.setEstados(e);
-		Mesas m= mesaService.listMesa(idMesa);
-		Cartas c =cartaService.listCarta(idCarta);
+		Mesas m= mesaService.buscarMesa(idMesa);
+		Cartas c =cartaService.buscarCarta(idCarta);
 		o.setCarta(c);
 		
 		System.out.println(e.getNombreEstado());
 		o.setMesas(m);
 		
 		
-		return ordenService.saveOrden(o);
+		return ordenService.agregarOrden(o);
 	}
 	
 	

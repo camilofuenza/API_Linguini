@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import api.Modelo.Dao.CartaDao;
 import api.Modelo.Entities.Cartas;
 
@@ -17,17 +18,17 @@ public class CartaService {
 	CartaDao cartadao;
 	
 	@Transactional
-	public List<Cartas> getAllCarta() {
+	public List<Cartas> listarCartas() {
         return this.cartadao.findAll();
     }
 	
 	@Transactional
-	public Cartas listCarta(int idCarta) {
+	public Cartas buscarCarta(int idCarta) {
 		return cartadao.findById(idCarta).orElse(null);
 	}
 	
 	@Transactional
-    public Cartas addCarta(Cartas carta) {
+    public Cartas agregarCarta(Cartas carta) {
         return this.cartadao.save(carta);
     }
 	
@@ -56,6 +57,9 @@ public class CartaService {
 		
 		return this.cartadao.listarVinos();
 	}
+
+
+	 
 	
 
 }

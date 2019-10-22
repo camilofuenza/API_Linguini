@@ -18,7 +18,7 @@ public class ProductoService {
 	
 	
 	@Transactional
-	public List<Productos> getAllProductos() {
+	public List<Productos> listarProductos() {
         return this.productoDao.findAll();
     }
 

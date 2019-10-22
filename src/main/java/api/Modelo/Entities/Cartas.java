@@ -25,6 +25,10 @@ public class Cartas {
 	
 	@Column (name="valorcarta", nullable=false)
 	private int valorCarta;
+	
+	@Lob
+	@Column(name="imagencarta")
+	private byte[] imagenCarta;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "idcategoria")
@@ -37,7 +41,7 @@ public class Cartas {
 	
 	
 
-	public Cartas(int idCarta, @Size(max = 100) String nombreCarta, int valorCarta, Categorias categoria) {
+	public Cartas(int idCarta, @Size(max = 100) String nombreCarta, int valorCarta,byte[] imagenCarta, Categorias categoria) {
 		super();
 		this.idCarta = idCarta;
 		this.nombreCarta = nombreCarta;
@@ -70,6 +74,18 @@ public class Cartas {
 	public void setValorCarta(int valorCarta) {
 		this.valorCarta = valorCarta;
 	}
+
+	public byte[] getImagenCarta() {
+		return imagenCarta;
+	}
+
+
+
+	public void setImagenCarta(byte[] imagenCarta) {
+		this.imagenCarta = imagenCarta;
+	}
+
+
 
 	public Categorias getCategoria() {
 		return categoria;

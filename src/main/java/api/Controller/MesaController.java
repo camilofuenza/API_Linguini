@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import api.Modelo.Entities.Categorias;
 import api.Modelo.Entities.Empleados;
 import api.Modelo.Entities.Estados;
 import api.Modelo.Entities.Mesas;
@@ -55,19 +55,23 @@ public class MesaController {
                                   {
 		Empleados e= empleadoService.listEmpleado(idEmpleado);
 		Estados est= estadoService.listEstado(idEstado);
-		m=mesaService.listMesa(idMesa);
+		m=mesaService.buscarMesa(idMesa);
         m.setEmpleados(e);
         m.setEstados(est);
   
-            return mesaService.saveMesa(m);
+            return mesaService.agregarMesa(m);
        
     }
 	
-	
+	@PutMapping(path= {"/{idMesa}"})
+	public Mesas modificiarMesa(@RequestBody Mesas m,@PathVariable("idMesa") int idMesa) {
+	m.setIdMesa(idMesa);
+	return mesaService.agregarMesa(m);
+	}
 	
 	@GetMapping(path= {"/{idMesa}"})
 	public Mesas listarMesa(@PathVariable("idMesa") int idMesa){
-		return mesaService.listMesa(idMesa);
+		return mesaService.buscarMesa(idMesa);
 	}
 
 }

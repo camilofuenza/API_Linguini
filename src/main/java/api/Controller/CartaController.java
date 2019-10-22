@@ -31,13 +31,14 @@ public class CartaController {
 	@Autowired
 	CategoriaService categoriaService;
 
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
-	public List<Cartas> getAllCarta() {
-		return cartaService.getAllCarta();
+	@RequestMapping(value = "/listarCartas", method = RequestMethod.GET)
+	public List<Cartas> listarCarta() {
+		return cartaService.listarCartas();
 	}
 	
 	@RequestMapping(value = "/pastas", method = RequestMethod.GET)
 	public List<Cartas> getAllPastas() {
+		
 		return cartaService.getPastas();
 	}
 	@RequestMapping(value = "/pizzas", method = RequestMethod.GET)
@@ -59,16 +60,16 @@ public class CartaController {
 	 
 	
 	@GetMapping(path= {"/{idCarta}"})
-	public Cartas listarCarta(@PathVariable("idCarta") int idCarta){
-		return cartaService.listCarta(idCarta);
+	public Cartas buscarCarta(@PathVariable("idCarta") int idCarta){
+		return cartaService.buscarCarta(idCarta);
 	}
 	
-	@PostMapping("/{idCategoria}/addcarta")
-    public Cartas addCarta(@PathVariable (value = "idCategoria") int idCategoria,
+	@PostMapping("/{idCategoria}/agregarcarta")
+    public Cartas agregarCarta(@PathVariable (value = "idCategoria") int idCategoria,
                                  @Valid @RequestBody Cartas carta) {
-        Categorias c= categoriaService.listCategoria(idCategoria);
+        Categorias c= categoriaService.buscarCategoria(idCategoria);
         carta.setCategoria(c);
-            return cartaService.addCarta(carta);
+            return cartaService.agregarCarta(carta);
        
     }
 	

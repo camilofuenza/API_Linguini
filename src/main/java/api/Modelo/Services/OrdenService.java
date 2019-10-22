@@ -30,8 +30,17 @@ public List<Ordenes> listOrdenesenTerminada() {
 }
 
 @Transactional
-public Ordenes saveOrden(Ordenes orden) {
+public List<Ordenes> listarPedidos(int idMesa) {
+	return ordenDao.listarPedidos(idMesa);
+}
+
+@Transactional
+public Ordenes agregarOrden(Ordenes orden) {
     return this.ordenDao.save(orden);
 }
 
+@Transactional
+public List<Ordenes> listarOrden(Ordenes orden) {
+    return this.ordenDao.findAll();
+}
 }

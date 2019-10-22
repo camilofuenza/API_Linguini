@@ -1,6 +1,5 @@
 package api.Modelo.Services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,39 +17,31 @@ public class CategoriaService {
 
 	
 	@Transactional
-	public List<Categorias> getAllCategorias() {
+	public List<Categorias> listarCategorias() {
 
-		List<Categorias> categorias= new ArrayList<Categorias>();
 		
-		for(Categorias a : (List<Categorias>)categoriaDao.findAll()) {
-			Categorias c= new Categorias();
-			c.idCategoria=(int)a.getIdCategoria();
-			c.nombreCategoria=a.getNombreCategoria();
-			categorias.add(c);
-		}
-		
-        return categorias;
+        return (List<Categorias>)categoriaDao.findAll();
     }
 	
 
 	@Transactional
-    public Categorias addCategoria(Categorias categoria) {
+    public Categorias agregarCategoria(Categorias categoria) {
         return this.categoriaDao.saveAndFlush(categoria);
     }
 	
 	@Transactional
-	public void deleteCategoria(int idCategoria) {
+	public void eliminarCategoria(int idCategoria) {
 
 		categoriaDao.deleteById(idCategoria);
 	}
 	
 	@Transactional
-	public Categorias listCategoria(int idCategoria) {
+	public Categorias buscarCategoria(int idCategoria) {
 		return categoriaDao.findById(idCategoria).orElse(null);
 	}
 	
 	@Transactional
-	public Categorias saveCategoria(Categorias categoria) {
+	public Categorias guardarCategoria(Categorias categoria) {
         return this.categoriaDao.save(categoria);
     }
 
